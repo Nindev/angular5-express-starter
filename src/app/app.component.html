@@ -1,0 +1,15 @@
+<mat-toolbar color="primary">
+  angular5-express-starter
+  <ng-container *ngIf="isLoggedIn">
+    <button mat-button routerLink="/dashboard">Dashboard</button>
+    <button mat-button routerLink="/users">Users</button>
+  </ng-container>
+  <span fxFlex></span>
+  <button mat-icon-button (click)="signout()" *ngIf="isLoggedIn">
+    <mat-icon>exit_to_app</mat-icon>
+  </button>
+</mat-toolbar>
+
+<div class="container">
+  <router-outlet></router-outlet>
+</div> 
