@@ -74,7 +74,7 @@ usersRoutes.get('/:id', userDetailAuthCheck, asyncMiddleware(async (req, res, ne
     });
 }));
 
-usersRoutes.post('/:id', userIsAdminMiddleware, asyncMiddleware(async (req, res, next) => {
+usersRoutes.post('/:id', userDetailAuthCheck, asyncMiddleware(async (req, res, next) => {
     const data = Object.assign({}, req.body);
     delete data._id;
     const user = await Users.updateOne({ _id: req.body._id}, data);

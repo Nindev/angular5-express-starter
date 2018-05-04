@@ -41,11 +41,19 @@ export class AuthService {
   }
 
   get me$(): Observable<User> {
-    return this.getHeaders().pipe(
+    return this.loggedIn$.pipe(
+      mergeMap(
+        loggedIn => loggedIn ? this.getHeaders() : of(null),
+        (loggedIn, headers) => headers
+      ),
       switchMap((headers: HttpHeaders) => {
-        return this.http.get<User>('/api/users/me', {
-          headers: headers
-        });
+        if (headers) {
+          return this.http.get<User>('/api/users/me', {
+            headers: headers
+          });
+        } else {
+          return of(null);
+        }
       })
     );
   }

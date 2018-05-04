@@ -12,7 +12,7 @@
       <mat-form-field *ngIf="!user._id">
         <input name="password" type="password" matInput placeholder="Password" [(ngModel)]="user.password">
       </mat-form-field>
-      <mat-checkbox name="admin" matInput [(ngModel)]="user.admin">
+      <mat-checkbox name="admin" matInput [(ngModel)]="user.admin" [disabled]="user.sysAdmin || !isAdmin">
         Admin
       </mat-checkbox>
     </mat-card-content>

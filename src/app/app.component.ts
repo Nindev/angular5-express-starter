@@ -17,12 +17,25 @@ export class AppComponent implements OnInit {
     private router: Router,
     private auth: AuthService
   ) {
-    auth.loggedInChanges$.subscribe(loggedIn => this.isLoggedIn = loggedIn);
+    auth.loggedInChanges$.subscribe(loggedIn => {
+      this.isLoggedIn = loggedIn;
+      if (!loggedIn) {
+        this.loggedUser = null;
+      } else {
+        this.loggedUser = this.auth.me$;
+      }
+    });
   }
 
   ngOnInit() {
-    this.loggedUser = this.auth.me$;
-    this.auth.loggedIn$.subscribe(loggedIn => { console.log("Logged in", loggedIn); this.isLoggedIn = loggedIn; });
+    this.auth.loggedIn$.subscribe(loggedIn => {
+      this.isLoggedIn = loggedIn;
+      if (!loggedIn) {
+        this.loggedUser = null;
+      } else {
+        this.loggedUser = this.auth.me$;
+      }
+    });
   }
 
   signout() {
