@@ -5,6 +5,7 @@
     <button mat-button routerLink="/users">Users</button>
   </ng-container>
   <span fxFlex></span>
+  <span>{{(loggedUser | async)?.email}}</span>
   <button mat-icon-button (click)="signout()" *ngIf="isLoggedIn">
     <mat-icon>exit_to_app</mat-icon>
   </button>

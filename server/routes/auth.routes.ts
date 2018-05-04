@@ -5,30 +5,30 @@ import * as moment from 'moment';
 
 import { Config } from '../config';
 import { Users } from '../models/user.model';
-import { User } from '../../declarations';
+import { User } from '../declarations';
 import { asyncMiddleware } from './utils';
 
 const authRoutes: Router = Router();
 
 authRoutes.get('/', (req, res) => res.send('Auth service running ' + new Date()));
 
-authRoutes.post('/signup', (req: Request, res: Response, next: NextFunction) => {
-    if (!req.body.password) {
-        const err = new Error('No password');
-        return next(err);
-    }
-    const salt = new Buffer(Config.OB_CRYPT_SALT).toString('base64');
-    const hash = pbkdf2Sync(req.body.password, salt, 10000, Config.OB_CRYPTO_KEY_LENGTH, Config.OB_CRYPTO_DIGEST);
-    const hashedPassword = hash.toString('hex');
-    Users.create({
-        email: req.body.email,
-        hashedPassword
-    }).then(user => {
-        res.json({
-            hash: hashedPassword
-        });
-    }).catch(err => next(err));
-});
+// authRoutes.post('/signup', (req: Request, res: Response, next: NextFunction) => {
+//     if (!req.body.password) {
+//         const err = new Error('No password');
+//         return next(err);
+//     }
+//     const salt = new Buffer(Config.OB_CRYPT_SALT).toString('base64');
+//     const hash = pbkdf2Sync(req.body.password, salt, 10000, Config.OB_CRYPTO_KEY_LENGTH, Config.OB_CRYPTO_DIGEST);
+//     const hashedPassword = hash.toString('hex');
+//     Users.create({
+//         email: req.body.email,
+//         hashedPassword
+//     }).then(user => {
+//         res.json({
+//             hash: hashedPassword
+//         });
+//     }).catch(err => next(err));
+// });
 
 authRoutes.post('/signin', asyncMiddleware(async (req: Request, res: Response, next: NextFunction) => {
     const salt = new Buffer(Config.OB_CRYPT_SALT).toString('base64');

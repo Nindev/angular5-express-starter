@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { AuthService } from './auth/auth.service';
 import { Router } from '@angular/router';
+import { User } from './users/users.model';
+import { Observable } from 'rxjs/Observable';
 
 @Component({
   selector: 'app-root',
@@ -8,7 +10,7 @@ import { Router } from '@angular/router';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent implements OnInit {
-
+  loggedUser: Observable<User>;
   isLoggedIn: boolean;
 
   constructor(
@@ -19,6 +21,7 @@ export class AppComponent implements OnInit {
   }
 
   ngOnInit() {
+    this.loggedUser = this.auth.me$;
     this.auth.loggedIn$.subscribe(loggedIn => { console.log("Logged in", loggedIn); this.isLoggedIn = loggedIn; });
   }
 

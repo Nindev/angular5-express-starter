@@ -4,7 +4,7 @@ import { FlexLayoutModule } from '@angular/flex-layout';
 import {
     MatToolbarModule, MatInputModule, MatButtonModule, MatFormFieldModule,
     MatCardModule, MatCheckboxModule, MatExpansionModule, MatTabsModule, MatTableModule,
-    MatSortModule, MatPaginatorModule, MatIconModule
+    MatSortModule, MatPaginatorModule, MatIconModule, MatSnackBarModule
 } from '@angular/material';
 
 @NgModule({
@@ -13,13 +13,13 @@ import {
         FlexLayoutModule,
         MatToolbarModule, MatInputModule, MatButtonModule, MatFormFieldModule,
         MatCardModule, MatCheckboxModule, MatExpansionModule, MatTabsModule, MatTableModule,
-        MatSortModule, MatPaginatorModule, MatIconModule
+        MatSortModule, MatPaginatorModule, MatIconModule, MatSnackBarModule
     ],
     exports: [
         FlexLayoutModule,
         MatToolbarModule, MatInputModule, MatButtonModule, MatFormFieldModule,
         MatCardModule, MatCheckboxModule, MatExpansionModule, MatTabsModule, MatTableModule,
-        MatSortModule, MatPaginatorModule, MatIconModule
+        MatSortModule, MatPaginatorModule, MatIconModule, MatSnackBarModule
     ],
 })
 export class AppMaterialModule { }

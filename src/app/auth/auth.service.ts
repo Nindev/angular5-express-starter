@@ -6,7 +6,7 @@ import { LocalStorage } from '@ngx-pwa/local-storage';
 import { of } from 'rxjs/observable/of';
 import { merge } from 'rxjs/observable/merge';
 import { BehaviorSubject } from 'rxjs/BehaviorSubject';
-import { User } from '../../../declarations';
+import { User } from '../users/users.model';
 
 export const JWT_TOKEN_STORAGE = 'appJwtToken';
 export const JWT_TOKEN_EXPIRES_AT = 'appJwtTokenExpiresAt';

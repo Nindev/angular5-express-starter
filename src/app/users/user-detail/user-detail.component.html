@@ -1,0 +1,25 @@
+<form #userForm="ngForm">
+  <mat-card fxFlex="33" fxFlexOffset="33">
+    <mat-card-title *ngIf="!user._id">Create new user</mat-card-title>
+    <mat-card-title *ngIf="user._id">User</mat-card-title>
+    <mat-card-content fxLayout="column">
+      <mat-form-field>
+        <input name="email" matInput placeholder="Email" [(ngModel)]="user.email" required [disabled]="!isAdmin || user._id">
+      </mat-form-field>
+      <mat-form-field>
+        <input name="name" matInput placeholder="Name" [(ngModel)]="user.name">
+      </mat-form-field>
+      <mat-form-field *ngIf="!user._id">
+        <input name="password" type="password" matInput placeholder="Password" [(ngModel)]="user.password">
+      </mat-form-field>
+      <mat-checkbox name="admin" matInput [(ngModel)]="user.admin">
+        Admin
+      </mat-checkbox>
+    </mat-card-content>
+    <mat-card-actions fxLayout="row">
+      <span fxFlex></span>
+      <button mat-button color="warn" routerLink="/users">Cancel</button>
+      <button mat-button color="primary" (click)="save(userForm)" [disabled]="!userForm.valid">Save</button>
+    </mat-card-actions>
+  </mat-card>
+</form>
