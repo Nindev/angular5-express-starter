@@ -2,6 +2,12 @@
 
 Angular 5 client + Express server + MongoDB
 
+## Installation
+
+1. Clone this repo `git clone https://github.com/lula/angular5-express-starter.git && cd angular5-express-starter`
+2. Clean and init git `sudo rm -r .git && git init`
+3. `npm install`
+
 ## Development
 
 `npm run start:dev`: start dev server and client with livereload
