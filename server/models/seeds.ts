@@ -1,5 +1,5 @@
 import { Users } from "./user.model";
-import { User } from "../../declarations";
+import { User } from "../declarations";
 import { Config } from "../config";
 import { pbkdf2Sync } from "crypto";
 

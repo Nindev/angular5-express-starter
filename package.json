@@ -10,7 +10,7 @@
     "e2e:client": "ng e2e",
     "build": "ng build --prod --sm=false --aot --output-path=dist/client && npm run server:build",
     "server:run": "nodemon",
-    "server:build": "tsc -p server/tsconfig.server.json",
+    "server:build": "tsc -p server/tsconfig.json",
     "postinstall": "npm run build",
     "start:prod": "npm run build && NODE_ENV=production OB_MONGODB_HOST=localhost OB_MONGODB_PORT=27017 OB_MONGODB_NAME=angular5-express-starter-prod OB_SERVER_PORT=4001 OB_JWT_SECRET=\"RbBQqAkwD#msRF8s7h*?@=8hAW&DgMDd6zLlW4XiWQb52wXSJwBX#?gL2JWf!\" OB_CRYPTO_KEY_LENGTH=128 OB_CRYPTO_DIGEST=sha512 OB_CRYPTO_SALT=\"oPyLvsc3kuEbR9Cy9XiE5Jn0mW2e7hpP7/QqkWBMemnZdC9GpC5fsaGDuzzwyxb/DtCMmUIBxWjv/n60n+hsb5OMbS2VBVod3CAwCkWZDfSfwzoAxTz/YhF62mm9dLxv5spOcmDvr50ZC/cO1N3tyGsWnXyEF+pmLLA5iDzeCjU=\" node dist/server/server.js"
   },
