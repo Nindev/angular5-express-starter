@@ -12,7 +12,9 @@ Angular 5 client + Express server + MongoDB
 
 `npm run start:dev`: start dev server and client with livereload
 
-In development the client is not served by Express, but by angular cli!
+In development the client is not served by Express, but by angular cli! 
+
+Configuration properties can be customized in .env file (dev only).
 
 ## Production
 
